@@ -26,8 +26,12 @@ def visualizzaRecord(nomeFile):
         with open (nomeFile,"a") as mioFile:
             print("file creato!\n")
 
-def gestisciArchivio():
-    print("ciao")
+def gestisciArchivio(nomeFile):
+    if not (os.path.exists(nomeFile)):
+        open(nomeFile,"x")
+        print("file creato!")
+    else:
+        print("file già creato!")
 
 def modTutto(nomeFile):
     with open(nomeFile,"r") as mioFile:
@@ -141,7 +145,7 @@ def main():
         match scelta:
             case 1: inserisciRecord(nomeFile)
             case 2: visualizzaRecord(nomeFile)
-            case 3: gestisciArchivio()
+            case 3: gestisciArchivio(nomeFile)
             case 4: modificaRecord(nomeFile)
             case 5: eliminaRecord(nomeFile)
 
